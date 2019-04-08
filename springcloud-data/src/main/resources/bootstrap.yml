@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: web
+  cloud:
+    config:
+      name: web # Name of application used to fetch remote properties.
+      profile: ${config.profile:dev} # The default profile to use when fetching remote configuration
+      # label: The label name to use to pull remote configuration properties. The default is set on the server (generally "master" for a git based server).
+      discovery:
+        enabled: true # 1.discovery 2.specific uri
+        service-id: config # Service id to locate config server. service id realize load balance
+      #uri: http://localhost:1313 The URI of the remote config server (default http://localhost:8888).
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5001/eureka/
+---
+spring:
+  profiles: dev
+logging:
+  path: ${logging.path.extra:D:/work/tomcat-tmp}/logs
+server:
+  tomcat:
+    basedir:
+      ${tomcat.basedir:D:/work/tomcat-tmp}/web
+    analysisWarnDir:
+      ${tomcat.analysisWarnDir:D:/work/tomcat-tmp}/analysisWarnCompany
+---
+spring:
+  profiles: test
+logging:
+  path: ${logging.path.extra:/home/dataserver/tomcat-tmp}/logs
+server:
+  tomcat:
+    basedir:
+      ${tomcat.basedir:/home/dataserver/tomcat-tmp}/web
+---
+spring:
+  profiles: prod
+logging:
+  path: ${logging.path.extra:/home/dataserver/tomcat-tmp}/logs
+server:
+  tomcat:
+    basedir:
+      ${tomcat.basedir:/home/dataserver/tomcat-tmp}/web
+
+---
+filePath:
+  winBasedir: C:\\
+
+---
+  filePath:
+    linuxBasedir: /home/analyst/

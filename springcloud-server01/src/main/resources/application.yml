@@ -1,0 +1,21 @@
+server:
+  port: 5001
+
+spring:
+  application:
+    name: server
+
+eureka:
+  # Eureka 注册服务器名称
+  instance:
+    hostname: localhost
+  client:
+    #是否注册给服务中心是因为在默认的情况下，项目会自动地查
+    #找服务治理中心去注册。这里项目自身就是服务治理中心 ，所以取消掉注册服务中心 。
+    # 单注册中心时候不需要开启注册和检索功能
+    register-with-eureka: false
+    #是否检索服务它是一个检索服务的功能，因为服务治理中心
+    #是维护服务实例的，所以也不需要这个功能，即设置为了 false 。
+    fetch-registry: false
+    #service-url:
+     # defaultZone: http://localhost:5002/eureka/

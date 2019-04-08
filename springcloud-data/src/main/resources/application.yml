@@ -1,0 +1,4 @@
+server:
+  port: 1350
+  max-http-header-size: 102400
+test2: gankki2

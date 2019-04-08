@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: config
+---
+spring:
+  application:
+    name: config
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:D:\financial-config-repo
+---
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://admin@192.168.1.127:8443/r/financial-config-repo.git
+          username: admin
+          password: admin
+          search-paths: financial-config-repo
+  profiles: test
+---
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/jinxingbj/dataserver-commons-repo.git
+          username: npt1317054578@gmail.com
+          password: ningpengtao
+          search-paths: dataserver-config-repo
+  profiles: prod
