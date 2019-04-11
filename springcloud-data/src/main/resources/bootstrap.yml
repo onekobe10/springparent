@@ -23,8 +23,6 @@ server:
   tomcat:
     basedir:
       ${tomcat.basedir:D:/work/tomcat-tmp}/web
-    analysisWarnDir:
-      ${tomcat.analysisWarnDir:D:/work/tomcat-tmp}/analysisWarnCompany
 ---
 spring:
   profiles: test

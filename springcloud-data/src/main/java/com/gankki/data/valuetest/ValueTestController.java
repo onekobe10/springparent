@@ -1,11 +1,10 @@
-package com.gankki.data.controller.valuetest;
+package com.gankki.data.valuetest;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  *@desc
