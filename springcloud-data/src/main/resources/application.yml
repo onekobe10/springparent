@@ -24,3 +24,6 @@ spring:
 mybatis:
   mapper-locations: classpath:mybatis/*.xml
   type-aliases-package: com.gankki.data.jpa.entity
+
+
+testsettings: @testsettings@
