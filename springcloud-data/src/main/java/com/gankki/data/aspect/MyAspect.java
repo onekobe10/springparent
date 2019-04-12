@@ -8,7 +8,7 @@ import org.springframework.core.Ordered;
 public class MyAspect implements Ordered {
 
 
-	@Pointcut("execution(* com.gankki.springboot.chapter4.aspect.service.impl.UserServiceImpl.manyAspects(..))")
+	@Pointcut("execution(* com.gankki.data.aspect.service.impl.UserServiceImpl.manyAspects(..))")
 	public void pointCut() {
 	}
 

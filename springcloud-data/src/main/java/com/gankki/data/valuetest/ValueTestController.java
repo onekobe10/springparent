@@ -17,7 +17,7 @@ public class ValueTestController {
 
 	@Value("${gankki3}")
 	private String test1;
-	@Value("${test2}")
+	//@Value("${test2}")
 	private String test2;
 	@Value("#{ systemProperties['user.name'] }")
 	private String defaultLocale;

@@ -9,7 +9,7 @@ import org.springframework.core.annotation.Order;
 @Order(2)
 public class MyAspect2 implements Ordered {
 
-	@Pointcut("execution(* com.gankki.springboot.chapter4.aspect.service.impl.UserServiceImpl.manyAspects(..))")
+	@Pointcut("execution(* com.gankki.data.aspect.service.impl.UserServiceImpl.manyAspects(..))")
 	public void manyAspects() {
 	}
 

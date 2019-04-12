@@ -12,7 +12,7 @@ public class MyAspect1 implements Ordered {
 		return 1;
 	}
 
-	@Pointcut("execution(* com.gankki.springboot.chapter4.aspect.service.impl.UserServiceImpl.manyAspects(..))")
+	@Pointcut("execution(* com.gankki.data.aspect.service.impl.UserServiceImpl.manyAspects(..))")
 	public void manyAspects() {
 	}
 
