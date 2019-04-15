@@ -1,9 +1,9 @@
 package com.gankki.data.jpa.service.impl.jpa;
 
-import com.gankki.data.jpa.entity.SysUser;
-import com.gankki.data.jpa.entity.User;
 import com.gankki.data.jpa.repository.jpa.SysUserRepository;
 import com.gankki.data.jpa.repository.jpa.UserRepository;
+import com.gankki.data.jpa.entity.SysUser;
+import com.gankki.data.jpa.entity.User;
 import com.gankki.data.jpa.service.jpa.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
