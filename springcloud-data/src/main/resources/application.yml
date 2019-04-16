@@ -2,7 +2,13 @@ server:
   port: 7794
   max-http-header-size: 102400
 
+mavensettings: @testsettings@
+testprofie: testprofile public
+testdev: default
+
 spring:
+  profiles:
+    active: ${spring.profiles.active}
   mvc:
     view:
       prefix: /WEB-INF/jsp/
@@ -25,5 +31,21 @@ mybatis:
   mapper-locations: classpath:mybatis/*.xml
   type-aliases-package: com.gankki.data.jpa.entity
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5001/eureka/
+---
+spring:
+  profiles: dev
 
-testsettings: @testsettings@
+testdev: dev
+testprofie: testprofile dev
+
+---
+spring:
+  profiles: prod
+
+testdev: prod
+testprofie: testprofile prod
+
