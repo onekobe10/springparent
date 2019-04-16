@@ -1,4 +1,4 @@
-package com.gankki.data.valuetest;
+package com.gankki.configtest.controller.valuetest;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -18,6 +18,7 @@
         <module>springcloud-zuul</module>
         <module>springcloud-gankki</module>
         <module>springcloud-data</module>
+        <module>springcloud-config-test</module>
     </modules>
 
     <parent>

@@ -1,9 +1,9 @@
 spring:
   application:
-    name: web
+    name: configtest
   cloud:
     config:
-      name: web # Name of application used to fetch remote properties.
+      name: configtest # Name of application used to fetch remote properties.
       profile: ${config.profile:dev} # The default profile to use when fetching remote configuration
       # label: The label name to use to pull remote configuration properties. The default is set on the server (generally "master" for a git based server).
       discovery:

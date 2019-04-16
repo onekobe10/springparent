@@ -11,13 +11,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 //指定扫描包
 @EnableAspectJAutoProxy
-@SpringBootApplication(scanBasePackages = {"com.gankki.data.aspect.**"})
 public class Chapter4Application {
-
-	// 启动切面
-	public static void main(String[] args) {
-		SpringApplication.run(Chapter4Application.class, args);
-	}
 
 	// 定义切面
 	@Bean(name = "myAspect")

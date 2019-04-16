@@ -1,17 +1,18 @@
-package com.gankki.data;
+package com.gankki.configtest;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- *@desc 持久层框架测试
+ *@desc springcloud配置中心测试
  *@author liuhao
- *@createDate 2019/3/24
+ *@createDate 2019/4/16
  */
 @SpringBootApplication
-public class SpringCloudDataApplication {
+public class SpringCloudConfigTestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringCloudDataApplication.class, args);
+		SpringApplication.run(SpringCloudConfigTestApplication.class, args);
 	}
 }
