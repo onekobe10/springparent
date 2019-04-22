@@ -1,5 +1,6 @@
 package com.gankki.data.jpa.service.impl.jpa;
 
+import com.gankki.data.jpa.entity.User4Jpa;
 import com.gankki.data.jpa.repository.jpa.SysUserRepository;
 import com.gankki.data.jpa.repository.jpa.UserRepository;
 import com.gankki.data.jpa.entity.SysUser;
@@ -31,5 +32,20 @@ public class SysUserServiceImpl implements SysUserService {
 	@Override
 	public List<User> findAll() {
 		return this.userRepository.findAll();
+	}
+
+	@Override
+	public List<User4Jpa> testCustomMethod1() {
+		return this.userRepository.testCustomMethod1();
+	}
+
+	@Override
+	public List<User4Jpa> testCustomMethod2() {
+		return this.userRepository.testCustomMethod2();
+	}
+
+	@Override
+	public List<User4Jpa> testCustomMethod3() {
+		return this.userRepository.testCustomMethod3();
 	}
 }
