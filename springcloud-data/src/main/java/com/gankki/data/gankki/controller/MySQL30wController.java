@@ -45,6 +45,11 @@ public class MySQL30wController {
 	return "测试";
 	}
 
+	@GetMapping("/testDevTools")
+	public String testDevTools(String name1){
+		System.out.println("fasfsd1234567");
+		return name1;
+	}
 
 	public static void main(String[] args) throws Exception{
 		String ss="";

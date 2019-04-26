@@ -92,6 +92,12 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
+        <!--
+             devtools存在两个类加载器
+             the base classloader   不会被修改的资源使用的类加载器
+             the restart classloader 会被修改的资源使用的类加载器，会导致应用重启，不过速度很快
+             使用JRebel只会重新加载更改的类，不会重启应用，热加载。强烈推荐
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
