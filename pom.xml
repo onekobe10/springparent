@@ -19,6 +19,7 @@
         <module>springcloud-gankki</module>
         <module>springcloud-data</module>
         <module>springcloud-config-test</module>
+        <module>springboot-kafka</module>
     </modules>
 
     <parent>
