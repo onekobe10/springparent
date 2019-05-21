@@ -15,7 +15,7 @@ public class ConsumerListener {
 	@KafkaListener(topics = "testTopic")
 	public void onMessage(String message){
 		//insertIntoDb(buffer);//这里为插入数据库代码
-		System.out.println(message);
+		System.out.println("accept................" + message);
 	}
 
 	@KafkaListener(topics = "userTopic")

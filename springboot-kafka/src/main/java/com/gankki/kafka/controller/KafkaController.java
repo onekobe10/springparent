@@ -18,6 +18,7 @@ public class KafkaController {
 
 	@GetMapping("/message/send")
 	public boolean send(@RequestParam String message){
+		System.out.println("send....." + message);
 		kafkaTemplate.send("testTopic",message);
 		return true;
 	}
