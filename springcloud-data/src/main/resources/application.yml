@@ -26,6 +26,11 @@ spring:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: gankki
 mybatis:
   mapper-locations: classpath:mybatis/*.xml
   type-aliases-package: com.gankki.data.jpa.entity
@@ -34,12 +39,20 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:5001/eureka/
+
 ---
 spring:
   profiles: dev
 
 testdev: dev
 testprofie: testprofile dev
+
+logging:
+  path: ${logging.path.extra:E:/gankkscode/gankkilog}/logs
+server:
+  tomcat:
+    basedir:
+      ${tomcat.basedir:E:/gankkscode/gankkilog}/tomcatlog
 
 ---
 spring:
