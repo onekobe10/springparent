@@ -3,6 +3,7 @@ package com.gankki.data.jpa.repository.jpa;
 import com.gankki.data.jpa.entity.SysUser;
 import com.gankki.data.jpa.entity.User;
 import com.gankki.data.jpa.entity.User4Jpa;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

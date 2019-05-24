@@ -6,12 +6,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
-
-/**** imports ****/
+/**
+ *@desc
+ *@author liuhao
+ *@createDate 2019/5/24
+ */
 public interface ProductDao4Jpa extends JpaRepository<ProductPo, Long> {
 
 	public ProductPo getProductById(Long id);
-
 
 	@Modifying
 	@Query("update product set stock = stock - ?2 where id = ?1 ")

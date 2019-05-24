@@ -7,6 +7,7 @@ import com.gankki.data.jpa.entity.PurchaseRecordPo;
 import com.gankki.data.jpa.service.jpa.PurchaseService4Jpa;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +16,7 @@ import java.util.Date;
 
 /**** imports ****/
 @Service
-public class PurchaseServiceI4Jpampl implements PurchaseService4Jpa {
+public class PurchaseServiceI4JpaImpl implements PurchaseService4Jpa {
 
 	@Autowired
 	private ProductDao4Jpa productDao4Jpa;

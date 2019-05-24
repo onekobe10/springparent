@@ -1,5 +1,6 @@
 package com.gankki.data.jpa.controller;
 
+import com.gankki.data.jpa.entity.User;
 import com.gankki.data.jpa.service.jpa.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,5 +31,12 @@ public class UserTestController {
 	@RequestMapping("/testCustomMethod3")
 	public Object testCustomMethod3(){
 		return this.sysUserService.testCustomMethod3();
+	}
+
+	@RequestMapping("/testCustomMethod4")
+	public Object testCustomMethod4(){
+		User user = new User();
+		this.sysUserService.save(user);
+		return null;
 	}
 }

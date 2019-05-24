@@ -4,4 +4,6 @@ import com.gankki.data.gankki.entity.MySQLBean;
 
 public interface MySQLService {
 	void save(MySQLBean mySQLBean);
+
+	void select();
 }

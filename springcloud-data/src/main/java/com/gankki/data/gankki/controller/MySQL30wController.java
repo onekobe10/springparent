@@ -28,7 +28,7 @@ public class MySQL30wController {
 	@GetMapping("/genData")
 	public String gengerateMySQLData() throws Exception{
 		StringBuilder sb = null;
-		for (int i = 1; i <= 200000; i++) {
+		for (int i = 1; i <= 1; i++) {
 			sb = new StringBuilder();
 			MySQLBean mySQLBean = new MySQLBean();
 			String uuid = UUID.randomUUID().toString();
@@ -47,6 +47,7 @@ public class MySQL30wController {
 
 	@GetMapping("/testDevTools")
 	public String testDevTools(String name1){
+		this.mySQLService.select();
 		System.out.println("fasfsd1234567");
 		return name1;
 	}

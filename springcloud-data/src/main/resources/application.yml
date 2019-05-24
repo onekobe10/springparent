@@ -31,6 +31,9 @@ spring:
       host: localhost
       port: 27017
       database: gankki
+## 默认为true，表示动态代理为cglib，特殊，spring data jpa中使用的是jdk的动态代理
+  aop:
+    proxy-target-class: true
 mybatis:
   mapper-locations: classpath:mybatis/*.xml
   type-aliases-package: com.gankki.data.jpa.entity
