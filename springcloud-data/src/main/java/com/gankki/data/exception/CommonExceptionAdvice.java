@@ -186,9 +186,9 @@ public class CommonExceptionAdvice implements ResponseBodyAdvice {
     ServletServerHttpResponse sshr=(ServletServerHttpResponse) response;
     HttpServletResponse response1=   sshr.getServletResponse();
     int status = response1.getStatus();
-    if(status == 500)
-      response1.setStatus(200);
-
+    if(status == 500) {
+		response1.setStatus(200);
+	}
     return body;
   }
 }

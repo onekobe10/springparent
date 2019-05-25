@@ -51,11 +51,10 @@ testdev: dev
 testprofie: testprofile dev
 
 logging:
-  path: ${logging.path.extra:E:/gankkscode/gankkilog}/logs
+  path: E:/gankkscode/gankkilog/logs
 server:
   tomcat:
-    basedir:
-      ${tomcat.basedir:E:/gankkscode/gankkilog}/tomcatlog
+    basedir: E:/gankkscode/gankkilog/tomcatlog
 
 ---
 spring:
