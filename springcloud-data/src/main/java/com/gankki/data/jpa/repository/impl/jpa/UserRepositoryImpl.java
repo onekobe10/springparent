@@ -34,6 +34,9 @@ public class UserRepositoryImpl {
 	 * 如果使用SessionFactory，因为SessionFactory是Hibernate的，无法直接更换ORM框架，更换ORM的话，需要修改所有的代码。
 	 * 如果想使用Hibernate的某些高级特性，只能使用SessionFactory，使用EntityManagerFactory无法享受Hibernate的高级用法。
 	 *
+	 * EntityManagerFactory	创建的session的session即使不手动关闭，自己也会在方法执行返回后关闭
+	 * SessionFactory Hibernate创建的session必须手动关闭，如果不关，就会一致持有这个连接。
+	 *
 	 * Spring DATA JPA 使用的是JPA的API接口访问数据，默认使用的是Hibernate的实现
 	 * 如果只使用JPA API访问数据，我们可以在不改变代码的情况下，切换持久层实现的框架，比如Hibernate和TopLink等
 	 * 类似于log4j logback的关系

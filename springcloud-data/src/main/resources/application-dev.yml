@@ -1,17 +1,30 @@
 spring:
   datasource:
+    url: jdbc:mysql://localhost:3306/gankki?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    tomcat:
+      default-transaction-isolation: 2
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      # 连接池的配置信息
-      # 初始化大小，最小，最大
       initial-size: 5
+      # 最小空闲时间
       min-idle: 5
-      maxActive: 20
+      maxActive: 10
+      # 强制关闭空闲连接，对性能会有一些影响，建议怀疑存在泄漏之后再打开
+      remove-abandoned: true
+      # 将关闭操作记录到日志中
+      log-abandoned: true
+      # 空闲连接超过时间关闭
+      remove-abandoned-timeout-millis: 60000
       # 配置获取连接等待超时的时间
       maxWait: 60000
-      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      use-unfair-lock: true
+      max-wait-thread-count: 20
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接(ms)
       timeBetweenEvictionRunsMillis: 60000
-      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      # 配置一个连接在池中最小生存的时间(ms)
       minEvictableIdleTimeMillis: 300000
       validationQuery: SELECT 1 FROM DUAL
       testWhileIdle: true
@@ -22,8 +35,13 @@ spring:
       maxPoolPreparedStatementPerConnectionSize: 20
       # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
       filters: stat,wall,log4j
-      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
-      connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
+      filter:
+        stat:
+          # 超过时间的慢查询会作为一条error日志
+          log-slow-sql: true
+          merge-sql: true
+          # 慢查询的时间限制
+          slow-sql-millis: 60000
       # 配置DruidStatFilter
       web-stat-filter:
         enabled: true
@@ -38,7 +56,8 @@ spring:
         deny: 192.168.1.73
         #  禁用HTML页面上的“Reset All”功能
         reset-enable: false
-        # 登录名
         login-username: root
-        # 登录密码
         login-password: root
+
+testdev: dev
+testprofie: testprofile dev

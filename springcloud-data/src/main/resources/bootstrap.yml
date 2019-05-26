@@ -1,0 +1,8 @@
+server:
+  port: 7794
+  max-http-header-size: 102400
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5001/eureka/

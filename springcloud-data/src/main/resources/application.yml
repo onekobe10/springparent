@@ -1,11 +1,3 @@
-server:
-  port: 7794
-  max-http-header-size: 102400
-
-mavensettings: @testsettings@
-testprofie: testprofile public
-testdev: default
-
 spring:
   profiles:
     active: ${spring.profiles.active}
@@ -13,13 +5,6 @@ spring:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
-  datasource:
-    url: jdbc:mysql://localhost:3306/gankki?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-    driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: root
-    tomcat:
-      default-transaction-isolation: 2
   jpa:
     database: mysql
     show-sql: true
@@ -38,23 +23,15 @@ mybatis:
   mapper-locations: classpath:mybatis/*.xml
   type-aliases-package: com.gankki.data.jpa.entity
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:5001/eureka/
-
----
-spring:
-  profiles: dev
-
-testdev: dev
-testprofie: testprofile dev
-
 logging:
   path: E:/gankkscode/gankkilog/logs
 server:
   tomcat:
     basedir: E:/gankkscode/gankkilog/tomcatlog
+
+mavensettings: @testsettings@
+testprofie: testprofile public
+testdev: default
 
 ---
 spring:

@@ -30,3 +30,4 @@ public class CommonExceptionAdvice implements ResponseBodyAdvice
 3. Spring Boot中默认配置ERROR、WARN和INFO级别的日志输出到控制台。 
 4. 推荐使用{}占位符来代替字符串拼接，效率更高
 5. ALL&OFF级别的日志一般使用
+#### Spring Boot

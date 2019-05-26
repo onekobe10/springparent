@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class MySQLServiceImpl implements MySQLService {
@@ -22,5 +24,10 @@ public class MySQLServiceImpl implements MySQLService {
 	@Override
 	public void select() {
 		System.out.println("hello world");
+	}
+
+	@Override
+	public List<MySQLBean> findByCnWord1(String name) {
+		return this.mySQLRepository.findByCnWord1(name);
 	}
 }

@@ -25,6 +25,11 @@ public class MySQL30wController {
 	@Autowired
 	private MySQLService mySQLService;
 
+	@GetMapping("/findByName")
+	public Object testSlowLog(String cnWord1){
+		return this.mySQLService.findByCnWord1(cnWord1);
+	}
+
 	@GetMapping("/genData")
 	public String gengerateMySQLData() throws Exception{
 		StringBuilder sb = null;
