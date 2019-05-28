@@ -30,4 +30,7 @@ public class CommonExceptionAdvice implements ResponseBodyAdvice
 3. Spring Boot中默认配置ERROR、WARN和INFO级别的日志输出到控制台。 
 4. 推荐使用{}占位符来代替字符串拼接，效率更高
 5. ALL&OFF级别的日志一般使用
-#### Spring Boot
+#### 如何实现跨域
+1. 服务器端运行跨域 设置响应头信息 CORS 等于 *，否则前端会报错；
+2. 在单个接口使用注解 @CrossOrigin 运行跨域；
+3. 使用 jsonp 跨域；
