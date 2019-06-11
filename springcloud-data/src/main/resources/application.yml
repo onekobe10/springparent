@@ -23,8 +23,6 @@ mybatis:
   mapper-locations: classpath:mybatis/*.xml
   type-aliases-package: com.gankki.data.jpa.entity
 
-logging:
-  path: E:/gankkscode/gankkilog/logs
 server:
   tomcat:
     basedir: E:/gankkscode/gankkilog/tomcatlog

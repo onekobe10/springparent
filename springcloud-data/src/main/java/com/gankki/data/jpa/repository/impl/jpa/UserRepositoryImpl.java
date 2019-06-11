@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -20,6 +21,7 @@ import java.util.List;
  */
 @Repository
 public class UserRepositoryImpl {
+//public class UserRepositoryImpl extends SimpleJpaRepository implements UserRepository {
 
 	@PersistenceContext
 	private EntityManager entityManager;

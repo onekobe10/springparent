@@ -21,7 +21,7 @@ public class ProductController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping("/ribbon")
+	@RequestMapping("/ribbon")
 	public UserPo testRibbon() {
 		UserPo user = null;
 		// 循环10次，然后可以看到各个用户微服务后台的日志打印
@@ -35,22 +35,22 @@ public class ProductController {
 	}
 
 	// 测试
-	@PostMapping("/feign")
+	@RequestMapping("/feign")
 	public UserPo testFeign() {
 		UserPo user = null;
 		// 循环10次
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 1; i++) {
 			Long id = (long) (i + 1);
 			user = userService.getUser(id);
 		}
 		return user;
 	}
 
-	@GetMapping("/feign2")
+	@RequestMapping("/feign2")
 	public Map<String, Object> testFeign2() {
 		Map<String, Object> result = null;
 		UserPo user = null;
-		for (int i = 1; i <= 10; i++) {
+		for (int i = 1; i <= 1; i++) {
 			Long id = (long) i;
 			user = new UserPo();
 			user.setId(id);
@@ -60,13 +60,14 @@ public class ProductController {
 			user.setNote("note_" + i);
 			result = userService.addUser(user);
 		}
+		System.out.println(result);
 		return result;
 	}
 
-	@GetMapping("/feign3")
+	@RequestMapping("/feign3")
 	public Map<String, Object> testFeign3() {
 		Map<String, Object> result = null;
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 1; i++) {
 			Long id = (long) (i + 1);
 			String userName = "user_name_" + id;
 			result = userService.updateName(userName, id);
@@ -74,14 +75,14 @@ public class ProductController {
 		return result;
 	}
 
-	@GetMapping("/circuitBreaker1")
+	@RequestMapping("/circuitBreaker1")
 	@HystrixCommand(fallbackMethod = "error", commandProperties = {
 			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500") })
 	public String circuitBreaker1() {
 		return restTemplate.getForObject("http://USER/timeout", String.class);
 	}
 
-	@GetMapping("/circuitBreaker2")
+	@RequestMapping("/circuitBreaker2")
 	@HystrixCommand(fallbackMethod = "error")
 	public String circuitBreaker2() {
 		return userService.testTimeout();
@@ -95,7 +96,7 @@ public class ProductController {
 		return "超时出错,回调方法";
 	}
 
-	@PostMapping("/testPostReq")
+	@RequestMapping("/testPostReq")
 	public Object testPostReq(@RequestBody Map map) {
 		return map.get("name");
 	}

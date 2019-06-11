@@ -47,7 +47,7 @@ public class UserController {
 	}
 
 	// 修改用户名，POST请求，其中用户编号使用请求头的形式传递
-	@PostMapping("/update/{userName}") 
+	@PostMapping("/update/{userName}")
 	public Map<String, Object> updateUsername(
 	        @PathVariable("userName") String userName,
 			Long id) {

@@ -6,3 +6,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:5001/eureka/
+
+logging:
+  path: E:/gankkscode/gankkilog/logs

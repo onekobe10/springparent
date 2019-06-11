@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-@FeignClient("user")
+@FeignClient(value = "user")
 @Service
 public interface UserService {
 
