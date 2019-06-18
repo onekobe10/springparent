@@ -1,9 +1,7 @@
 package com.gankki.mybatis.controller;
 
-import com.gankki.mybatis.entity.TestMybatis;
 import com.gankki.mybatis.service.MyBatisTestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,4 +27,20 @@ public class MyBatisTestController {
 	public Object testMethod2(){
 		return myBatisTestService.testMethod2();
 	}
+
+	@RequestMapping("testMethod3")
+	public Object testMethod3(){
+		return myBatisTestService.testMethod3();
+	}
+
+	@RequestMapping("testMethod4")
+	public Object testMethod4(){
+		return myBatisTestService.testMethod4();
+	}
+
+	@RequestMapping("testMethod5")
+	public Object testMethod5(){
+		return myBatisTestService.testMethod5();
+	}
+
 }
