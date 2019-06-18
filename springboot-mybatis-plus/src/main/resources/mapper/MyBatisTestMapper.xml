@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gankki.mybatis.mapper.MyBatisTestMapper">
+
+    <sql id="mybatis_plus_column">
+			id,
+			user_name,
+			password,
+			create_date,
+			update_date
+	</sql>
+
+    <select id="selectByPage" resultType="com.gankki.mybatis.entity.TestMybatis">
+        SELECT
+            <include refid="mybatis_plus_column" />
+        FROM
+            mybatis_plus
+        WHERE
+            password = #{password}
+    </select>
+
+</mapper>
