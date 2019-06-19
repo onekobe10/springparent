@@ -21,6 +21,7 @@
         <module>springcloud-config-test</module>
         <module>springboot-kafka</module>
         <module>springboot-mybatis-plus</module>
+        <module>springboot-redis</module>
     </modules>
 
     <parent>
