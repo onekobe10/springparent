@@ -15,6 +15,7 @@ spring:
     host: localhost
     timeout: 1000
 
+
 zuul:
   routes:
     user-service:
