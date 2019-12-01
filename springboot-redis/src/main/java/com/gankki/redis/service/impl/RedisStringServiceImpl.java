@@ -1,24 +1,20 @@
 package com.gankki.redis.service.impl;
 
-import com.gankki.redis.service.IRedisService;
+import com.gankki.redis.service.IRedisStringService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
- * Jedis单机版
- *
- * @author lv
- *
+ * Redis String datatype ServiceImpl
+ * @author liuhao
+ * @date 2019/12/1
  */
-@Service
-public class RedisServiceImpl implements IRedisService {
-
+@Service()
+public class RedisStringServiceImpl implements IRedisStringService {
     @Autowired
     private JedisPool jedisPool;
 
@@ -27,16 +23,15 @@ public class RedisServiceImpl implements IRedisService {
         Jedis jedis = jedisPool.getResource();
         String result = jedis.set(key, value);
         jedis.close();
-
         return result;
     }
 
     @Override
-    public String set(byte[] key, byte[] value) {
+    public String set(String key, String value, int liveTime) {
         Jedis jedis = jedisPool.getResource();
         String result = jedis.set(key, value);
+        jedis.expire(key, liveTime);
         jedis.close();
-
         return result;
     }
 
@@ -45,88 +40,102 @@ public class RedisServiceImpl implements IRedisService {
         Jedis jedis = jedisPool.getResource();
         String result = jedis.get(key);
         jedis.close();
-
         return result;
     }
 
     @Override
-    public byte[] get(byte[] key) {
+    public String getRange(String key, long startOffset, long endOffset) {
         Jedis jedis = jedisPool.getResource();
-        byte[] result = jedis.get(key);
+        String result = jedis.getrange(key, startOffset, endOffset);
         jedis.close();
-
         return result;
     }
 
     @Override
-    public Long del(String key) {
+    public String getSet(String key, String value) {
         Jedis jedis = jedisPool.getResource();
-        Long result = jedis.del(key);
+        String result = jedis.getSet(key, value);
         jedis.close();
-
         return result;
     }
 
     @Override
-    public Long del(byte[] key) {
+    public Boolean setbit(String key, long offset, String value) {
         Jedis jedis = jedisPool.getResource();
-        Long result = jedis.del(key);
+        Boolean result = jedis.setbit(key, offset, value);
         jedis.close();
-
         return result;
     }
 
     @Override
-    public Long del(String... keys) {
+    public Boolean getbit(String key, long offset) {
         Jedis jedis = jedisPool.getResource();
-        Long result = jedis.del(keys);
+        Boolean result = jedis.getbit(key, offset);
         jedis.close();
-
         return result;
     }
 
     @Override
-    public Long del(byte[]... keys) {
+    public List<String> mget(String... keys) {
         Jedis jedis = jedisPool.getResource();
-        Long result = jedis.del(keys);
+        List<String> result = jedis.mget(keys);
         jedis.close();
-
         return result;
     }
 
     @Override
-    public Boolean exists(String key) {
+    public String setex(String key, int seconds, String value) {
         Jedis jedis = jedisPool.getResource();
-        Boolean result = jedis.exists(key);
+        String result = jedis.setex(key, seconds, value);
         jedis.close();
-
         return result;
     }
 
     @Override
-    public Long expire(String key, int seconds) {
+    public Long setnx(String key, String value) {
         Jedis jedis = jedisPool.getResource();
-        Long result = jedis.expire(key, seconds);
+        Long result = jedis.setnx(key, value);
         jedis.close();
-
         return result;
     }
 
     @Override
-    public Long expire(byte[] key, int seconds) {
+    public Long setrange(String key, long offset, String value) {
         Jedis jedis = jedisPool.getResource();
-        Long result = jedis.expire(key, seconds);
+        Long result = jedis.setrange(key, offset, value);
         jedis.close();
-
         return result;
     }
 
     @Override
-    public Long ttl(String key) {
+    public Long strlen(String key) {
         Jedis jedis = jedisPool.getResource();
-        Long result = jedis.ttl(key);
+        Long result = jedis.strlen(key);
         jedis.close();
+        return result;
+    }
 
+    @Override
+    public String mset(String... keysvalues) {
+        Jedis jedis = jedisPool.getResource();
+        String result = jedis.mset(keysvalues);
+        jedis.close();
+        return result;
+    }
+
+    @Override
+    public Long msetnx(String... keysvalues) {
+        Jedis jedis = jedisPool.getResource();
+        Long result = jedis.msetnx(keysvalues);
+        jedis.close();
+        return result;
+    }
+
+    @Override
+    public String psetex(String key, long milliseconds, String value) {
+        Jedis jedis = jedisPool.getResource();
+        String result = jedis.psetex(key, milliseconds, value);
+        jedis.close();
         return result;
     }
 
@@ -135,109 +144,47 @@ public class RedisServiceImpl implements IRedisService {
         Jedis jedis = jedisPool.getResource();
         Long result = jedis.incr(key);
         jedis.close();
-
         return result;
     }
 
     @Override
-    public Long hset(String key, String field, String value) {
+    public Long incrBy(String key, long integer) {
         Jedis jedis = jedisPool.getResource();
-        Long result = jedis.hset(key, field, value);
-        jedis.close();
-
-        return result;
-    }
-
-    @Override
-    public String hget(String key, String field) {
-        Jedis jedis = jedisPool.getResource();
-        String result = jedis.hget(key, field);
-        jedis.close();
-
-        return result;
-    }
-
-    @Override
-    public Map<String, String> hgetAll(String key) {
-        Jedis jedis = jedisPool.getResource();
-        Map<String, String> result = jedis.hgetAll(key);
-        jedis.close();
-
-        return result;
-    }
-
-    @Override
-    public Long hdel(String key, String... fields) {
-        Jedis jedis = jedisPool.getResource();
-        Long result = jedis.hdel(key, fields);
-        jedis.close();
-
-        return result;
-    }
-
-    @Override
-    public Long hIncrBy(String key, String field, long value) {
-        Jedis jedis = jedisPool.getResource();
-        Long result = jedis.hincrBy(key, field,value);
+        Long result = jedis.incrBy(key, integer);
         jedis.close();
         return result;
     }
 
     @Override
-    public Set<String> zrangeByScore(String key,Long min,Long max){
+    public Double incrByFloat(String key, double value) {
         Jedis jedis = jedisPool.getResource();
-        Set<String> results = jedis.zrangeByScore(key, min, max);
-        jedis.close();
-        return results;
-    }
-
-    @Override
-    public List<String> srandMember(String key, int count) {
-        Jedis jedis = jedisPool.getResource();
-        List<String> result = jedis.srandmember(key, count);
+        Double result = jedis.incrByFloat(key, value);
         jedis.close();
         return result;
     }
 
-	/**  
-	 * @Title: zadd  
-	 * @Description: TODO
-	 * @param TODO
-	 * @return TODO
-	 */ 
-	@Override
-	public Long zadd(String key, Map<String, Double> scoreMembers) {
-		Jedis jedis = jedisPool.getResource();
-		Long result = jedis.zadd(key, scoreMembers);
-		jedis.close();
-		return result;
-	}
+    @Override
+    public Long decr(String key) {
+        Jedis jedis = jedisPool.getResource();
+        Long result = jedis.decr(key);
+        jedis.close();
+        return result;
+    }
 
-	/**  
-	 * @Title: sadd  
-	 * @Description: TODO
-	 * @param TODO
-	 * @return TODO
-	 */ 
-	@Override
-	public Long sadd(String key, String member) {
-		Jedis jedis = jedisPool.getResource();
-		Long result = jedis.sadd(key, member);
-		jedis.close();
-		return result;
-	}
+    @Override
+    public Long decrBy(String key, long integer) {
+        Jedis jedis = jedisPool.getResource();
+        Long result = jedis.decrBy(key, integer);
+        jedis.close();
+        return result;
+    }
 
-	/**  
-	 * @Title: srem  
-	 * @Description: TODO
-	 * @param TODO
-	 * @return TODO
-	 */ 
-	@Override
-	public Long srem(String key, String member) {
-		Jedis jedis = jedisPool.getResource();
-		Long result = jedis.srem(key, member);
-		jedis.close();
-		return result;
-	}
+    @Override
+    public Long append(String key, String value) {
+        Jedis jedis = jedisPool.getResource();
+        Long result = jedis.append(key, value);
+        jedis.close();
+        return result;
+    }
+
 }

@@ -1,5 +1,7 @@
 # Redis 
- 
+
+ Redis 是单线程的。由于Redis的性能瓶颈在于内存读写速度，而不是CPU，设计者将Redis设计成了单线程模式，其所有操作都是原子性的，避免了多线程带来的复杂性。
+
 1. 单机的database
 > 1. Redis 单机支持多个数据库，并且每个数据库的数据是隔离的，不能共享，并且基于单机才有，如果是集群则没有数据库的概念。
 > 2. 每个数据库对外都是一个从0开始的递增数字命名，Redis默认支持16个数据库（可以通过配置文件支持更多，无上限），可以通过配置databases来修改这一数字。客户端与Redis建立连接后会自动选择0号数据库，不过可以随时使用SELECT命令更换数据库，如要选择1号数据库：
@@ -32,3 +34,10 @@ Every hash, list, set, and sorted set, can hold 232 elements.
 
 In other words your limit is likely the available memory in your system.
 ```
+4. Redis 数据类型
+> 1. String
+> 2. hash
+> 3. list
+> 4. set
+> 5. orderedSet
+
