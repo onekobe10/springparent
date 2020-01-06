@@ -13,7 +13,7 @@ import java.util.List;
  * @author liuhao
  * @date 2019/12/1
  */
-@Service()
+@Service
 public class RedisStringServiceImpl implements IRedisStringService {
     @Autowired
     private JedisPool jedisPool;
