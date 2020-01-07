@@ -19,14 +19,14 @@ public class RedisStringTypeController {
 	private IRedisStringService redisStringService;
 
 	@RequestMapping("test")
-	public void test1(){
+	public void test(){
 		// 设置指定 key 的值
 		// 在 Redis 2.6.12 以前版本， SET 命令总是返回 OK 。
 		// 从 Redis 2.6.12 版本开始， SET 在设置操作成功完成时，才返回 OK 。
 		String setResult = redisStringService.set("liu", "hao,hello world");
 		System.out.println("setResult：" + setResult);
 
-		//// 设置指定 key 的值和失效时间，单位是秒
+		// 设置指定 key 的值和失效时间，单位是秒
 		String setWithExpireResult = redisStringService.set("expire", "expire", 10000);
 		System.out.println("setWithExpireResult：" + setWithExpireResult);
 
