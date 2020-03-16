@@ -13,14 +13,10 @@ import org.springframework.scheduling.annotation.EnableAsync;
  */
 @EnableAsync
 @SpringBootApplication
-public class SpringCloudGankkiApplication implements BeanNameAware {
-
-	@Override
-	public void setBeanName(String beanName) {
-		System.out.println(beanName + "......");
-	}
+public class SpringCloudGankkiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringCloudGankkiApplication.class, args);
 	}
+
 }
