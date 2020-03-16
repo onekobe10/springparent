@@ -1,4 +1,4 @@
-package com.gankki.config;
+package com.gankki.bean;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
@@ -20,7 +20,7 @@ public class HelloWorld  implements BeanNameAware, BeanFactoryAware, Application
 
 	@Override
 	public void setBeanName(String beanName) {
-		System.out.println(beanName + "1.......");
+		System.out.println(beanName + ".......");
 	}
 
 	/**
@@ -58,12 +58,12 @@ public class HelloWorld  implements BeanNameAware, BeanFactoryAware, Application
 
 	@PostConstruct
 	public void init(){
-		System.out.println("初始化方法1");
+		System.out.println("初始化方法init");
 	}
 
 	@Override
-	public void afterPropertiesSet() throws Exception {
-		System.out.println("初始化方法2");
+	public void afterPropertiesSet() {
+		System.out.println("初始化方法afterSet");
 	}
 
 	@PreDestroy
