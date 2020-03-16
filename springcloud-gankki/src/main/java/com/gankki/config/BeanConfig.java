@@ -1,8 +1,13 @@
-package com.gankki.configuration;
+package com.gankki.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
+/**
+ * BeanPostProcessor 测试
+ * @author liuhao
+ * @date 2020/3/16
+ */
 public class BeanConfig  implements BeanPostProcessor {
 
 	@Override

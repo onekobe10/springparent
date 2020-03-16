@@ -16,8 +16,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class SpringCloudGankkiApplication implements BeanNameAware {
 
 	@Override
-	public void setBeanName(String s) {
-		System.out.println(s + "......");
+	public void setBeanName(String beanName) {
+		System.out.println(beanName + "......");
 	}
 
 	public static void main(String[] args) {

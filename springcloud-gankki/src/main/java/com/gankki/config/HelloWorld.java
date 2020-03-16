@@ -1,4 +1,4 @@
-package com.gankki.configuration;
+package com.gankki.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
