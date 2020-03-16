@@ -2,6 +2,8 @@ package com.gankki;
 
 
 import com.alibaba.fastjson.JSON;
+import com.gankki.bo.PropertiesTest1BO;
+import com.gankki.bo.PropertiesTest2BO;
 import com.gankki.bo.PropertiesTestBO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.BeanNameAware;
@@ -14,6 +16,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -28,6 +31,7 @@ import javax.sql.DataSource;
 @Slf4j
 @EnableAsync
 @SpringBootApplication
+@EnableConfigurationProperties(PropertiesTest2BO.class)
 /*1.
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class,
 		DataSourceTransactionManagerAutoConfiguration.class,
@@ -42,10 +46,12 @@ public class SpringCloudGankkiApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		PropertiesTestBO bar = (PropertiesTestBO)applicationContext.getBean("bar");
 		PropertiesTestBO foo = (PropertiesTestBO)applicationContext.getBean("foo");
+		PropertiesTest1BO bar = (PropertiesTest1BO)applicationContext.getBean("bar");
+		PropertiesTest2BO sar = applicationContext.getBean(PropertiesTest2BO.class);
 		log.info("bar:{}", JSON.toJSONString(bar));
 		log.info("foo:{}", JSON.toJSONString(foo));
+		log.info("sat:{}", JSON.toJSONString(sar));
 	}
 
 	/*1.
