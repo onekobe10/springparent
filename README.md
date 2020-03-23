@@ -90,3 +90,8 @@ Class<? extends Throwable>[] noRollbackFor() default {}; 设置不会导致事�
 
 String[] noRollbackForClassName() default {}; 设置不会导致事务回滚的异常类名称数组
 ```
+
+
+#### Note
+1. Spring的事务抽象 @Transactional 中的 transactionManager 作用
+> PlatformTransactionManager、DataSourceTransactionManager、HibernateTransactionManager、JtaTransactionManager
