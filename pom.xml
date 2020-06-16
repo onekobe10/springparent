@@ -22,6 +22,8 @@
         <module>springboot-kafka</module>
         <module>springboot-mybatis-plus</module>
         <module>springboot-redis</module>
+        <module>rocketmq-producer</module>
+        <module>rocketmq-consumer</module>
     </modules>
 
     <parent>
@@ -38,6 +40,13 @@
         <swagger2.version>2.7.0</swagger2.version>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>
