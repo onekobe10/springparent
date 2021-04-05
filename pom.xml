@@ -24,6 +24,7 @@
         <module>springboot-redis</module>
         <module>rocketmq-producer</module>
         <module>rocketmq-consumer</module>
+        <module>alibaba-td</module>
     </modules>
 
     <parent>
