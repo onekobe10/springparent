@@ -4,12 +4,17 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.gankki.mybatis.entity.TestMybatis;
 import com.gankki.mybatis.mapper.MyBatisTestMapper;
+import com.gankki.mybatis.mapper.TblDepartmentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 /**
  *@desc
@@ -21,6 +26,25 @@ public class MyBatisTestService {
 
 	@Autowired
 	private MyBatisTestMapper myBatisTestMapper;
+
+	@Resource
+	private TblDepartmentMapper tblDepartmentMapper;
+
+	@Resource
+	private MyBatisTest2Service myBatisTest2Service;
+
+	public List<String> selectById() {
+		return tblDepartmentMapper.selectById1();
+	}
+
+	@Transactional(rollbackFor = Exception.class)
+	public void insert1() throws Exception {
+		tblDepartmentMapper.insert1(1002L, new Date());
+		System.out.println("insert1...." + Thread.currentThread().getName());
+		myBatisTest2Service.insert2();
+		//CompletableFuture.runAsync(() -> insert2());
+		throw new Exception("hah");
+	}
 
 	public TestMybatis testMethod1() {
 		return myBatisTestMapper.selectById(1);

@@ -3,8 +3,12 @@ package com.gankki.mybatis.controller;
 import com.gankki.mybatis.entity.TestMybatis;
 import com.gankki.mybatis.service.MyBatisTestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  *@desc
@@ -18,6 +22,18 @@ public class MyBatisTestController {
 
 	@Autowired
 	MyBatisTestService myBatisTestService;
+
+	@GetMapping("insert1")
+	public String insert1()  throws Exception{
+		myBatisTestService.insert1();
+		return "success";
+	}
+
+	@GetMapping("test1")
+	public List<String> test1(){
+		return myBatisTestService.selectById();
+	}
+
 
 	@RequestMapping("testMethod1")
 	public Object testMethod1(){

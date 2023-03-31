@@ -16,7 +16,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <!-- maven five kinds of placeholder-->
-        <testenv>${env.COMPUTERNAME}</testenv>
+        <!--<testenv>${env.COMPUTERNAME}</testenv>-->
         <testproject>${project.artifactId}</testproject>
         <testsettings>${settings.localRepository}</testsettings>
         <testjdksys>${java.home}</testjdksys>
