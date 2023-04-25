@@ -1,6 +1,7 @@
 package com.gankki.mybatis.controller;
 
 import com.gankki.mybatis.entity.TestMybatis;
+import com.gankki.mybatis.service.MyBatisTest3Service;
 import com.gankki.mybatis.service.MyBatisTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,9 +24,18 @@ public class MyBatisTestController {
 	@Autowired
 	MyBatisTestService myBatisTestService;
 
+	@Autowired
+	MyBatisTest3Service myBatisTest3Service;
+
 	@GetMapping("insert1")
 	public String insert1()  throws Exception{
 		myBatisTestService.insert1();
+		return "success";
+	}
+
+	@GetMapping("insert2")
+	public String insert2()  throws Exception{
+		myBatisTest3Service.insert1();
 		return "success";
 	}
 

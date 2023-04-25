@@ -7,8 +7,12 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *@desc
@@ -27,7 +31,6 @@ public class MyBatisTest2Service {
 	}
 
 
-
 	@Async
 	@Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
 	public void insert2() throws Exception{
@@ -36,6 +39,10 @@ public class MyBatisTest2Service {
 		throw new Exception("hah2");
 	}
 
+	public static void main(String[] args) {
+		Map<String, Object> map = new HashMap<>();
+		System.out.println((Double) map.getOrDefault("1", null));
+	}
 
 
 }
