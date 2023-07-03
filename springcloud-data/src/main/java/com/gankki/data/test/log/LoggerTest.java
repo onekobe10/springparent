@@ -27,7 +27,7 @@ public class LoggerTest {
             log.error("各类参数或者对象toString()_{}", e.getMessage(), e);
             log.error("各类参数或者对象toString()_{}", e.getMessage(), e);
             log.error("各类参数或者对象toString()_{}_test_1_1", e.getMessage(), e);
-            log.error("各类参数或者对象toString()_{}_test_2", e.getMessage(), e);
+            log.error("各类参数或者对象toString()_{}_test_2_2", e.getMessage(), e);
         }
     }
 
