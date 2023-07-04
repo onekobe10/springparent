@@ -25,7 +25,7 @@ public class LoggerTest {
             // 可以使用warn日志级别来记录用户输入参数错误的情况，避免用户投诉时，无所适从。如非必要，请不要在此场景打出error级别，避免频繁报警。
             log.error("XXXX_{}", e.getMessage(), e);
             log.error("各类参数或者对象toString()_{}", e.getMessage(), e);
-            log.error("各类参数或者对象toString()_{}", e.getMessage(), e);
+            log.error("各类参数或者对象toString()_{}", e.getMessage(), e);1
 
 
         }
