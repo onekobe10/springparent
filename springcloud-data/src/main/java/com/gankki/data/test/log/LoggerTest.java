@@ -26,6 +26,7 @@ public class LoggerTest {
             log.error("XXXX_{}", e.getMessage(), e);
             log.error("各类参数或者对象toString()_{}", e.getMessage(), e);
             log.error("各类参数或者对象toString()_{}", e.getMessage(), e);
+            log.error("各类参数或者对象toString()_{}", e.getMessage(), e);
 
         }
     }
